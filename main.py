@@ -19,22 +19,23 @@ def get_rendered_tajs(filename):
     TAJ = []
     [TAJ.append(re.sub("-", "", element[col_1])) for element in table]
     new_tajs = [re.sub(" ", "", tajs) for tajs in TAJ]
-    taj_dict = {index: tajnumber for index, tajnumber in enumerate(new_tajs)}
+    taj_dict = {tajnumber: index for index, tajnumber in enumerate(new_tajs)}
     return taj_dict
 
 def compare(lista1, lista2): #lista = list of rendered tajnumbers
     common_tajs = []
-    for number in lista1.values():
-        if number in lista2.values():
-            common_tajs.append(number)
+    for key, value in lista1.items():
+        if key in lista2.keys():
+            common_tajs.append((value, lista2[key], key))
     return common_tajs
+    # return dict(map(lambda kv: {kv[0], (kv[1], lista2.get(kv[0], None))}, lista1.items()))
 
 def main():
     csv_1 = "Personal info.csv"
     #csv_1 = input("Please, add base CSV file name: ")
     col_1 = int(input("Plese add the number of the containing column"))
 
-    #csv_2 = input("Please, add base CSV file name: ")
+    #csv_2 = input("Please, add base CSV file name: ")0
     #col_2 = int(input("Plese add the number of the containing column"))
     csv_2 = "DrGregoryHouse.csv"
     table_1 = get_table_from_file(csv_1)
