@@ -6,8 +6,9 @@ from tkinter.filedialog import askopenfilename
 ##main
 ##background
 root = tkinter.Tk()
-root.wm_iconbitmap('diagrams.ico')
-root.iconbitmap('diagrams.ico')
+# root.wm_iconbitmap('diagrams.ico')
+# root.iconbitmap('diagrams.ico')root.wm_iconbitmap('diagrams.ico')
+# root.iconbitmap('diagrams.ico')
 root.title("Merge No More!")
 root.configure(background="white")
 root.geometry("730x165")
