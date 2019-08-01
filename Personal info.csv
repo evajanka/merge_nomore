@@ -1,9 +1,5 @@
  Patient information,,,,,,,,,
 TAJ,First name, Last name,Age,Gender,Height(cm),Weight(kg),Treatment group,Procedure date,Surgical Doctor
-118-56682-670,Dolores,Abernathy,32,female,163,65,,,
-117-199-420,Sheldon,Cooper,46,m,190,60,,,
-240-77654-919,Lily,Aldrin,27,f,168,60,,,
-113327650,Arya, Stark,22,F,165,70,2 = control,,
 112-389-895, Maurice, Moss,42,M,187,89,1 = treated,,
 116 552 989,Chandler,Bing,49,Male,178,80,,,
 130717586,June,Osborne,37,Female,160,63,,,
@@ -11,4 +7,5 @@ TAJ,First name, Last name,Age,Gender,Height(cm),Weight(kg),Treatment group,Proce
 117-199-420,Sheldon,Cooper,46,m,190,60,,,
 240-711-919,Lily,Aldrin,27,f,168,60,,,
 113327650,Arya, Stark,22,F,165,70,2 = control,,
+123-234-234, kreélsfd, flkfőp, 22, f
 

@@ -30,7 +30,7 @@ def compare(lista1, lista2): #lista = list of rendered tajnumbers
 def merge_files(common_tajs, table1, table2):
     final = []
     for tajnum, index1, index2 in common_tajs:
-        item = table1[index1] + table2[index2]
+        item = table1[index1] + table2[index2][1:]
         final.append(item)
     return final
 
@@ -45,9 +45,10 @@ def export(final):
 def original_data_append(table_1, final):
     with open("merged.csv", 'a') as myfile:
         for row in table_1:
-            if any(row[0] in element for element in final):
+            if any(str(row[0]) not in element for element in final):
                 row = str((",").join(row) + ("\n"))
                 myfile.write(row)
+
 
 col_1 = int(input("Plese add the number of the containing column"))
 col_2 = int(input("Plese add the number of the containing column"))
@@ -68,9 +69,6 @@ def main():
     final = merge_files(common_tajs, table_1, table_2)
     print(final)
     export(final)
-    # print(newtajs_1)
-    # print(newtajs_2)
-    # print(common_tajs)
     original_data_append(table_1, final)
 
 

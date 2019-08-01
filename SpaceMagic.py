@@ -1,9 +1,6 @@
 import re
 import csv
 
-col_1 = 0
-col_2 = 0
-
 
 def get_table_from_file(filename):
     with open(filename, "r+") as myfile:
@@ -12,9 +9,10 @@ def get_table_from_file(filename):
     return table
 
 
-def get_rendered_tajs(table):
+def get_rendered_tajs(table, col):
     TAJ = []
-    [TAJ.append(re.sub("-", "", element[col_1])) for element in table]
+    col = int(col)
+    [TAJ.append(re.sub("-", "", element[col])) for element in table]
     new_tajs = [re.sub(" ", "", tajs) for tajs in TAJ]
     taj_dict = {tajnumber: index for index, tajnumber in enumerate(new_tajs)}
     return taj_dict
@@ -59,11 +57,11 @@ def export(merged_table):
     newFile.close()
 
 
-def main(csv1, csv2):
+def main(csv1, csv2, col1, col2):
     table_1 = get_table_from_file(csv1) #list of listd
     table_2 = get_table_from_file(csv2) #list of list
-    newtajs_1 = get_rendered_tajs(table_1) #dictionary
-    newtajs_2 = get_rendered_tajs(table_2) #dictionary
+    newtajs_1 = get_rendered_tajs(table_1, col1) #dictionary
+    newtajs_2 = get_rendered_tajs(table_2, col2) #dictionary
     common_tajs = compare(newtajs_1, newtajs_2) #list of list
     print("Common TAJs:")
     print(common_tajs)
@@ -75,4 +73,5 @@ def main(csv1, csv2):
     merged_table = merge_files(common_tajs, anti_tajs, table_1, table_2) #list of list
     export(merged_table)
 
-main('DrGregoryHouse.csv', 'Personal info.csv')
+if __name__ == "__main__":
+    main('DrGregoryHouse.csv', 'Personal info.csv')
