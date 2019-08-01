@@ -6,12 +6,9 @@ from tkinter.filedialog import askopenfilename
 ##main
 ##background
 root = tkinter.Tk()
-# root.wm_iconbitmap('diagrams.ico')
-# root.iconbitmap('diagrams.ico')root.wm_iconbitmap('diagrams.ico')
-# root.iconbitmap('diagrams.ico')
-root.title("Merge No More!")
+root.title("Merge No More!")    
 root.configure(background="white")
-root.geometry("730x165")
+root.geometry("490x250")
 
 ##file browsers
 def import_csv1_data():
@@ -32,19 +29,36 @@ def import_csv2_data():
 #Browse button 1 +label
 csv1 = ""
 browsebutton1 = tkinter.Button(root, text="Add Base Spreadsheet",  width=50, command=import_csv1_data)
-browsebutton1.pack()
+browsebutton1.place(x= 0, y = 0)
 pathlabel1 = tkinter.Label(root)
-pathlabel1.pack()
+pathlabel1.place(x= 0, y = 30)
+
 
 #Colum selector button
-# columselectorbutton1 = tkinter.Button(root, text="Select index of colum", width=50, command=)
+columselectorbutton1 = tkinter.Button(root, text="Select index of colum", width=15)
+tkinter.Label(root, text="Add colum number:").place(x= 0, y = 60)
+col_1 = tkinter.Entry(root)
+col_1.place(x= 130, y = 58) 
+col1 = col_1.get()
+columselectorbutton1.place(x= 320, y = 57.25)
+
 
 #Browse button 2 +label
 csv2 = ""
 browsebutton2 = tkinter.Button(root, text="Add Comparison Spreadsheet", width=50, command=import_csv2_data)
-browsebutton2.pack()
+browsebutton2.place(x= 0, y = 90)
 pathlabel2 = tkinter.Label(root)
-pathlabel2.pack()
+pathlabel2.place(x= 0, y = 120)
+
+
+#Colum selector button
+columselectorbutton2 = tkinter.Button(root, text="Select index of colum", width=15)
+tkinter.Label(root, text="Add colum number:").place(x= 0, y = 150)
+col_2 = tkinter.Entry(root)
+col_2.place(x= 130, y = 147) 
+col1 = col_1.get()
+columselectorbutton2.place(x= 320, y = 147.25)
+
 
 #Merge function call:
 def merge(event):
@@ -54,7 +68,7 @@ def merge(event):
 #Merge button
 mergebutton = tkinter.Button(root, text="Merge", width=50)
 mergebutton.bind("<Button-1>", merge)
-mergebutton.pack()
+mergebutton.place(x= 0, y = 180)
 
 
 ##exit function
@@ -65,7 +79,7 @@ def close_root():
 
 # #exit button
 exitbutton = tkinter.Button(root, text="Exit", width=50, command=close_root)
-exitbutton.pack()
+exitbutton.place(x= 0, y = 210)
 
 
 
